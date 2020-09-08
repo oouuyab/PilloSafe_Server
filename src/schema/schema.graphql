@@ -1,4 +1,4 @@
 type Query {
-  helloWorld: String!
-  getMediInfo: String!
+  hi: String!
+  getMediInfo: String
 }

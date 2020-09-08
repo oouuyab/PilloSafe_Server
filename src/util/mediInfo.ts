@@ -1,5 +1,6 @@
 let axios = require('axios');
 import 'dotenv/config';
+import parseXML from './parseXML';
 
 const url = process.env.MEDICINE_URL;
 const key = process.env.MEDICINE_KEY;
@@ -30,9 +31,11 @@ let getMediInfo = async (
     }
 
     let getInfo = await axios({ url: url + queryParams, method: 'GET' });
-    return getInfo.data;
+    let parsedData = parseXML(getInfo.data).response.body.items;
+    return parsedData;
   } catch (err) {
     console.log('getMediInfo err');
+    console.log(err);
     return;
   }
 };
