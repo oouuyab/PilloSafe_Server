@@ -1,4 +1,28 @@
 type Query {
-  hi: String!
-  getMediInfo: String
+  hi: String
+  getMediInfo: [getMediInfoResult]
+}
+type getMediInfoResult {
+  item: [lists]
+}
+type lists {
+  TYPE_NAME: String
+  MIX_TYPE: String
+  INGR_CODE: String
+  INGR_ENG_NAME: String
+  INGR_KOR_NAME: String
+  MIX: String
+  ORI: String
+  CLASS: String
+  MIXTURE_MIX_TYPE: String
+  MIXTURE_INGR_CODE: String
+  MIXTURE_INGR_ENG_NAME: String
+  MIXTURE_INGR_KOR_NAME: String
+  MIXTURE_MIX: String
+  MIXTURE_ORI: String
+  MIXTURE_CLASS: String
+  NOTIFICATION_DATE: Int
+  PROHBT_CONTENT: String
+  REMARK: String
+  DEL_YN: String
 }
