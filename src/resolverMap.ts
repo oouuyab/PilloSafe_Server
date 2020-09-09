@@ -7,9 +7,7 @@ const resolverMap: IResolvers = {
     hi(_: void, args: void): string {
       return `Hello GraphQL~!`;
     },
-    getMediInfo(_: void, args: void): any {
-      getMediInfo('병용금기', '', 'Itraconazole ', '', '');
-    }
+    getMediInfo: () => getMediInfo('병용금기', '', '', '1', '3')
   }
 };
 

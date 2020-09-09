@@ -14,24 +14,38 @@ let getMediInfo = async (
 ) => {
   try {
     let queryParams = '?' + encodeURIComponent('ServiceKey') + '=' + key;
-
-    if (typeName !== '') {
-      queryParams += '&' + encodeURIComponent('typeName') + '=' + encodeURIComponent(typeName);
-    } else if (ingrCode !== '') {
+    let type = '/';
+    if (typeName === '병용금기') {
+      type += 'getUsjntTabooInfoList';
+    }
+    // queryParams += '&' + encodeURIComponent('typeName') + '=' + encodeURIComponent(typeName);
+    if (ingrCode !== '')
       queryParams += '&' + encodeURIComponent('ingrCode') + '=' + encodeURIComponent(ingrCode);
-    } else if (ingrKorName !== '') {
+    if (ingrKorName !== '')
       queryParams +=
         '&' + encodeURIComponent('ingrKorName') + '=' + encodeURIComponent(ingrKorName);
-    } else if (pageNo !== '') {
+    if (pageNo !== '')
       queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
-    } else if (numOfRows !== '') {
+    if (numOfRows !== '')
       queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent(numOfRows);
-    } else {
-      return '';
-    }
 
-    let getInfo = await axios({ url: url + queryParams, method: 'GET' });
+    // if (typeName === '병용금기') {
+    //   type += 'getUsjntTabooInfoList';
+    //   queryParams += '&' + encodeURIComponent('typeName') + '=' + encodeURIComponent(typeName);
+    // } else if (ingrCode !== '') {
+    //   queryParams += '&' + encodeURIComponent('ingrCode') + '=' + encodeURIComponent(ingrCode);
+    // } else if (ingrKorName !== '') {
+    //   queryParams +=
+    //     '&' + encodeURIComponent('ingrKorName') + '=' + encodeURIComponent(ingrKorName);
+    // } else if (pageNo !== '') {
+    //   queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(pageNo);
+    // } else if (numOfRows !== '') {
+    //   queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent(numOfRows);
+    // }
+    console.log(url + type + queryParams);
+    let getInfo = await axios({ url: url + type + queryParams, method: 'GET' });
     let parsedData = parseXML(getInfo.data).response.body.items;
+    console.log(parsedData);
     return parsedData;
   } catch (err) {
     console.log('getMediInfo err');

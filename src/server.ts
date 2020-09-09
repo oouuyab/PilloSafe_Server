@@ -5,6 +5,7 @@ import { createServer } from 'http';
 import compression from 'compression';
 import cors from 'cors';
 import schema from './schema';
+import bodyParser from 'body-parser';
 
 export const app = express();
 export const server = new ApolloServer({

@@ -8,11 +8,11 @@ describe('서버 통신', () => {
     const res = await req.post(server.graphqlPath).send({ query: 'query {\n  hi\n}' });
     expect(res.status).to.eql(200);
   });
-  // it('say Hello', async () => {
-  //   const res = await req.post(server.graphqlPath).send({ query: 'query {\n  hi\n}' });
-  //   const sayHello = { data: { hi: 'Hello GraphQL~!' } };
-  //   expect(res.text).to.eql(JSON.stringify(sayHello));
-  // });
+  it('say Hello', async () => {
+    const res = await req.post(server.graphqlPath).send({ query: 'query {\n  hi\n}' });
+    const sayHello = 'Hello GraphQL~!';
+    expect(JSON.parse(res.text).data.hi).to.eql(sayHello);
+  });
 });
 
 // describe('병용금기', () => {
