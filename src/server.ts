@@ -6,12 +6,17 @@ import compression from 'compression';
 import cors from 'cors';
 import schema from './schema';
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import 'dotenv/config';
 
 export const app = express();
 export const server = new ApolloServer({
   schema,
   validationRules: [depthLimit(7)]
 });
+const uri = `mongodb+srv://medicine:${process.env.MONGODB_PASSWORD}@medicine.3f0al.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+mongoose.Promise = global.Promise;
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use('*', cors());
 app.use(compression());
