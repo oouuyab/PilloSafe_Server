@@ -5,187 +5,187 @@ const Schema = mongoose.Schema;
 const MedicineSchema = new Schema({
   id: {
     type: String,
-    require: true
+    required: false
   },
   ENTP_NAME: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_INGR_ENG_NAME: {
     type: String,
-    require: true
+    required: false
   },
   DUR_SEQ: {
     type: Number,
-    require: true
+    required: false
   },
   CODE: {
     type: Number,
-    require: true
+    required: false
   },
   ITEM_PERMIT_DATE: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_INGR_CODE: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_ITEM_NAME: {
     type: String,
-    require: true
+    required: false
   },
   REMARK: {
     type: String,
-    require: false
+    required: false
   },
   MIXTURE_ETC_OTC_NAME: {
     type: String,
-    require: true
+    required: false
   },
   TYPE_NAME: {
     type: String,
-    require: true
+    required: false
   },
   FORM_NAME: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_FORM_CODE: {
     type: Number,
-    require: true
+    required: false
   },
   FORM_CODE: {
     type: Number,
-    require: true
+    required: false
   },
   RESISTERED_ID: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_ENTP_NAME: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_INGR_KOR_NAME: {
     type: String,
-    require: true
+    required: false
   },
   NOTIFICATION_DATE: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_ITEM_PERMIT_DATE: {
     type: String,
-    require: true
+    required: false
   },
   INGR_ENG_NAME: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_CLASS_NAME: {
     type: String,
-    require: true
+    required: false
   },
   PROHBT_CONTENT: {
     type: String,
-    require: true
+    required: false
   },
   CHANGE_DATE: {
     type: String,
-    require: true
+    required: false
   },
   RESISTERED_DATE: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_MIX: {
     type: String,
-    require: true
+    required: false
   },
   MAIN_INGR: {
     type: String,
-    require: true
+    required: false
   },
   TYPE_CODE: {
     type: String,
-    require: true
+    required: false
   },
   MIX: {
     type: String,
-    require: true
+    required: false
   },
   INGR_KOR_NAME: {
     type: String,
-    require: true
+    required: false
   },
   CHART: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_CLASS_CODE: {
     type: Number,
-    require: true
+    required: false
   },
   MIXTURE_FORM_NAME: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_MAIN_INGT: {
     type: String,
-    require: true
+    required: false
   },
   ITEM_SEQ: {
     type: Number,
-    require: true
+    required: false
   },
   CLASS_NAME: {
     type: String,
-    require: true
+    required: false
   },
   ETC_OTC_CODE: {
     type: Number,
-    require: true
+    required: false
   },
   ITEM_NAME: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_DUR_SEQ: {
     type: Number,
-    require: true
+    required: false
   },
   MIX_INGT: {
     type: String,
-    require: false
+    required: false
   },
   CHANGE_ID: {
     type: String,
-    require: true
+    required: false
   },
   INGR_CODE: {
     type: String,
-    require: true
+    required: false
   },
   ETC_OTC_NAME: {
     type: String,
-    require: true
+    required: false
   },
   MIXTURE_ITEM_SEQ: {
     type: Number,
-    require: true
+    required: false
   },
   MIXTURE_ETC_OTC_CODE: {
     type: Number,
-    require: true
+    required: false
   },
   CLASS_CODE: {
     type: Number,
-    require: true
+    required: false
   },
   MIXTURE_CHART: {
     type: String,
-    require: true
+    required: false
   }
 });
 

@@ -1,11 +1,7 @@
 type Query {
-  hi: String
-  getMediInfo: [getMediInfoResult]
+  getMediInfo(ENTP_NAME: String): [MediInfo]
 }
-type getMediInfoResult {
-  item: [lists]
-}
-type lists {
+type MediInfo {
   id: String
   ENTP_NAME: String
   MIXTURE_INGR_ENG_NAME: String

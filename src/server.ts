@@ -14,9 +14,12 @@ export const server = new ApolloServer({
   schema,
   validationRules: [depthLimit(7)]
 });
-const uri = `mongodb+srv://medicine:${process.env.MONGODB_PASSWORD}@medicine.3f0al.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+
+const uri = process.env.MONGO_URI;
+const db = process.env.MONGO_DB;
+
 mongoose.Promise = global.Promise;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb://${uri}/${db}`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use('*', cors());
 app.use(compression());
