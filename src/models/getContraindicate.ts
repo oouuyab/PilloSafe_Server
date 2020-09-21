@@ -6,7 +6,6 @@ dotenv.config();
 
 const getContraindicate = async (itemName: string, mixtureItemName: string) => {
   try {
-    console.log(itemName, mixtureItemName);
     console.time('getContarindicate');
     const url = process.env.MEDICINE_URL;
     const key = process.env.MEDICINE_KEY;
@@ -29,9 +28,10 @@ const getContraindicate = async (itemName: string, mixtureItemName: string) => {
     let targetItem;
     items.forEach((item: { MIXTURE_ITEM_NAME: string }) => {
       if (item.MIXTURE_ITEM_NAME === mixtureItemName) {
-        targetItem = item;
+        targetItem = { ...item };
       }
     });
+    console.log(targetItem);
     console.timeEnd('getContarindicate');
     return targetItem;
   } catch (err) {

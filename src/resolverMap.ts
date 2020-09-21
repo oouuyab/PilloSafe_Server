@@ -3,8 +3,7 @@ import getContraindicate from './models/getContraindicate';
 
 const resolverMap: IResolvers = {
   Query: {
-    async contraindicate({ ITEM_NAME, MIXTURE_ITEM_NAME }) {
-      console.log(ITEM_NAME, MIXTURE_ITEM_NAME);
+    async contraindicate(root, { ITEM_NAME, MIXTURE_ITEM_NAME }) {
       return getContraindicate(ITEM_NAME, MIXTURE_ITEM_NAME);
     }
   }
