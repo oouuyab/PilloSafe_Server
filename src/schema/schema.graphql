@@ -1,51 +1,48 @@
 type Query {
-  getMediInfo(ENTP_NAME: String): [MediInfo]
+  contraindicate(ITEM_NAME: String!, MIXTURE_ITEM_NAME: String): [MediInfo]
 }
+
 type MediInfo {
-  id: String
-  ENTP_NAME: String
-  MIXTURE_INGR_ENG_NAME: String
   DUR_SEQ: Int
-  CODE: Int
-  ITEM_PERMIT_DATE: String
-  MIXTURE_INGR_CODE: String
-  MIXTURE_ITEM_NAME: String
-  REMARK: String
-  MIXTURE_ETC_OTC_NAME: String
-  TYPE_NAME: String
-  FORM_NAME: String
-  MIXTURE_FORM_CODE: Int
-  FORM_CODE: Int
-  RESISTERED_ID: String
-  MIXTURE_ENTP_NAME: String
-  MIXTURE_INGR_KOR_NAME: String
-  NOTIFICATION_DATE: String
-  MIXTURE_ITEM_PERMIT_DATE: String
-  INGR_ENG_NAME: String
-  MIXTURE_CLASS_NAME: String
-  PROHBT_CONTENT: String
-  CHANGE_DATE: String
-  RESISTERED_DATE: String
-  MIXTURE_MIX: String
-  MAIN_INGR: String
   TYPE_CODE: String
+  TYPE_NAME: String
   MIX: String
+  INGR_CODE: String
   INGR_KOR_NAME: String
+  INGR_ENG_NAME: String
+  MIX_INGR: String
+  ITEM_SEQ: Int
+  ITEM_NAME: String
+  ENTP_NAME: String
   CHART: String
+  FORM_CODE: Int
+  ETC_OTC_CODE: Int
+  CLASS_CODE: Int
+  FORM_NAME: String
+  ETC_OTC_NAME: String
+  CLASS_NAME: String
+  MAIN_INGR: String
+  MIXTURE_DUR_SEQ: Int
+  MIXTURE_MIX: String
+  MIXTURE_INGR_CODE: String
+  MIXTURE_INGR_KOR_NAME: String
+  MIXTURE_INGR_ENG_NAME: String
+  MIXTURE_ITEM_SEQ: Int
+  MIXTURE_ITEM_NAME: String
+  MIXTURE_ENTP_NAME: String
+  MIXTURE_FORM_CODE: Int
+  MIXTURE_ETC_OTC_CODE: Int
   MIXTURE_CLASS_CODE: Int
   MIXTURE_FORM_NAME: String
-  MIXTURE_MAIN_INGT: String
-  ITEM_SEQ: Int
-  CLASS_NAME: String
-  ETC_OTC_CODE: Int
-  ITEM_NAME: String
-  MIXTURE_DUR_SEQ: Int
-  MIX_INGT: String
-  CHANGE_ID: String
-  INGR_CODE: String
-  ETC_OTC_NAME: String
-  MIXTURE_ITEM_SEQ: Int
-  MIXTURE_ETC_OTC_CODE: Int
-  CLASS_CODE: Int
+  MIXTURE_ETC_OTC_NAME: String
+  MIXTURE_CLASS_NAME: String
+  MIXTURE_MAIN_INGR: String
+  NOTIFICATION_DATE: Int
+  PROHBT_CONTENT: String
+  REMARK: String
+  ITEM_PERMIT_DATE: Int
+  MIXTURE_ITEM_PERMIT_DATE: Int
   MIXTURE_CHART: String
+  CHANGE_DATE: Int
+  MIXTURE_CHANGE_DATE: Int
 }

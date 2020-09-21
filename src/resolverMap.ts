@@ -1,10 +1,11 @@
 import { IResolvers, IResolverObject } from 'graphql-tools';
-import medicine from './models/Medicine';
+import getContraindicate from './models/getContraindicate';
 
 const resolverMap: IResolvers = {
   Query: {
-    async getMediInfo(root, { ENTP_NAME }) {
-      return await medicine.find({ ENTP_NAME: ENTP_NAME });
+    async contraindicate({ ITEM_NAME, MIXTURE_ITEM_NAME }) {
+      console.log(ITEM_NAME, MIXTURE_ITEM_NAME);
+      return getContraindicate(ITEM_NAME, MIXTURE_ITEM_NAME);
     }
   }
 };
