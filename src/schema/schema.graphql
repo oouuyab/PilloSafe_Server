@@ -1,5 +1,5 @@
 type Query {
-  contraindicate(ITEM_NAME: String!, MIXTURE_ITEM_NAME: String): [MediInfo]
+  contraindicate(ITEM_NAME: String!, MIXTURE_ITEM_NAME: String!): MediInfo
 }
 
 type MediInfo {
