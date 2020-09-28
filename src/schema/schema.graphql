@@ -1,4 +1,5 @@
 type Query {
+  hi: String
   contraindicate(ITEM_NAME: String!, MIXTURE_ITEM_NAME: String!): MediInfo
 }
 

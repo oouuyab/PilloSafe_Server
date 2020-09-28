@@ -25,13 +25,12 @@ const getContraindicate = async (itemName: string, mixtureItemName: string) => {
     });
 
     let items = parseXML(result.data).response.body.items.item;
-    let targetItem;
+    let targetItem = {};
     items.forEach((item: { MIXTURE_ITEM_NAME: string }) => {
       if (item.MIXTURE_ITEM_NAME === mixtureItemName) {
         targetItem = { ...item };
       }
     });
-    console.log(targetItem);
     console.timeEnd('getContarindicate');
     return targetItem;
   } catch (err) {

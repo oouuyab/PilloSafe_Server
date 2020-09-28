@@ -15,109 +15,21 @@ describe('서버 통신', () => {
   });
 });
 
-// describe('병용금기', () => {
-//   const req = request(app);
-
-//   it('Itraconazole 성분에 대한 병용금기', async () => {
-//     const res = await req.post(server.graphqlPath).send({ query: 'getMediInfo' }).expect(200);
-
-//     const books = [
-//       {
-//         title: 'Harry Potter and the Chamber of Secrets',
-//         author: 'J.K. Rowling'
-//       },
-//       {
-//         title: 'Jurassic Park',
-//         author: 'Michael Crichton'
-//       }
-//     ];
-
-//     expect(res.body.data.books).to.eql(books);
-//   });
-
-// it('query - books - cannot query field', async () => {
-//   const errors = await req
-//     .post(server.graphqlPath)
-//     .send({ query: '{ books { title author content } }' })
-//     .expect(400)
-//     .then((res) => res.body.errors);
-
-//   expect(errors).to.have.lengthOf(1);
-//   expect(errors[0].extensions.code).to.equal('GRAPHQL_VALIDATION_FAILED');
-//   expect(errors[0].message).to.equal('Cannot query field "content" on type "Book".');
-// });
-
-// it('mutation - createBook', async () => {
-//   const book = {
-//     title: 'Title',
-//     author: 'Author'
-//   };
-
-//   const createdBook = await req
-//     .post(server.graphqlPath)
-//     .send({
-//       query: `
-//           mutation CreateBook($title: String $author: String) {
-//              createBook(title: $title author: $author) {
-//                 title author
-//              }
-//           }
-//        `,
-//       variables: book
-//     })
-//     .expect(200)
-//     .then((res) => res.body.data.createBook);
-
-//   expect(createdBook).to.eql(book);
-
-//   const books = await req
-//     .post(server.graphqlPath)
-//     .send({ query: '{ books { title author } }' })
-//     .expect(200)
-//     .then((res) => res.body.data.books);
-
-//   expect(books).to.deep.include(book);
-// });
-
-// it('mutation - createBook - unknown argument', async () => {
-//   const errors = await req
-//     .post(server.graphqlPath)
-//     .send({
-//       query: `
-//           mutation CreateBook($_id: String) {
-//              createBook(_id: $_id) {
-//                title author
-//              }
-//           }
-//        `
-//     })
-//     .expect(400)
-//     .then((res) => res.body.errors);
-
-//   expect(errors).to.have.lengthOf(1);
-//   expect(errors[0].extensions.code).to.equal('GRAPHQL_VALIDATION_FAILED');
-//   expect(errors[0].message).to.equal(
-//     'Unknown argument "_id" on field "createBook" of type "Mutation".'
-//   );
-// });
-
-// it('mutation - createBook - cannot query field', async () => {
-//   const errors = await req
-//     .post(server.graphqlPath)
-//     .send({
-//       query: `
-//           mutation CreateBook($title: String $author: String) {
-//              createBook(title: $title author: $author) {
-//                title author content
-//              }
-//           }
-//        `
-//     })
-//     .expect(400)
-//     .then((res) => res.body.errors);
-
-//   expect(errors).to.have.lengthOf(1);
-//   expect(errors[0].extensions.code).to.equal('GRAPHQL_VALIDATION_FAILED');
-//   expect(errors[0].message).to.equal('Cannot query field "content" on type "Book".');
-// });
-// });
+describe('병용금기', () => {
+  const req = request(app);
+  //* 입력 관련 테스트 케이스 추가하기
+  it('contarindicate test', async () => {
+    const res = await req.post(server.graphqlPath).send({
+      query:
+        'query{\n  contraindicate(ITEM_NAME: "스포라녹스캡슐(이트라코나졸)", MIXTURE_ITEM_NAME:"로바로드정(로바스타틴)"){\n    ITEM_NAME,\n    ENTP_NAME,\n    MIXTURE_ITEM_NAME,\n    MIXTURE_ENTP_NAME,\n    PROHBT_CONTENT\n  }\n}'
+    });
+    const contraindicate = {
+      ITEM_NAME: '스포라녹스캡슐(이트라코나졸)',
+      ENTP_NAME: '(주)한국얀센',
+      MIXTURE_ITEM_NAME: '로바로드정(로바스타틴)',
+      MIXTURE_ENTP_NAME: '(주)종근당',
+      PROHBT_CONTENT: '횡문근융해증'
+    };
+    expect(JSON.parse(res.text).data.contraindicate).to.eql(contraindicate);
+  });
+});
