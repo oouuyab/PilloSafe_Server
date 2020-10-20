@@ -45,6 +45,7 @@
     "graphql-import-node": "0.0.4",
     "mocha": "^8.1.1",
     "nodemon": "^2.0.4",
+    "object-path": "^0.11.5",
     "supertest": "^4.0.2",
     "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0",
