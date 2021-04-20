@@ -28,7 +28,7 @@
     "express": "^4.17.1",
     "fast-xml-parser": "^3.17.4",
     "graphql": "^15.3.0",
-    "mongoose": "^5.10.4"
+    "mongoose": "^5.12.5"
   },
   "devDependencies": {
     "@types/chai": "^4.2.12",
@@ -44,6 +44,7 @@
     "graphql-import": "^1.0.2",
     "graphql-import-node": "0.0.4",
     "mocha": "^8.1.1",
+    "mquery": "^3.2.5",
     "nodemon": "^2.0.4",
     "object-path": "^0.11.5",
     "supertest": "^4.0.2",
